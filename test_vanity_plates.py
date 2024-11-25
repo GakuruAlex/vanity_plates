@@ -52,6 +52,19 @@ class TestContainsDigits:
     plates = Plates()
     def test_contains_digits(self, plate, result):
         assert self.plates.contains_digits(plate) == result
+#Test if the first number is a digit is a zero in the plate
+@pytest.mark.parametrize("plate, result",[
+    ("AAA022", True),
+    ("AAA220", False),
+    ("AA02A", True),
+    ("02222", True),
+    ("Hello", False),
+    ("22222", False)
+])
+class TestIsFirstDigitIsZero:
+    plates = Plates()
+    def test_is_first_digit_zero(self, plate, result):
+        assert self.plates.is_first_digit_zero(plate) == result
 #Test for the is number in the middle of the plate function
 @pytest.mark.parametrize("plate, result",[
     ("CS50", False),
