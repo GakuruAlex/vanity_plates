@@ -37,6 +37,17 @@ class TestBeginsWithTwoLetters:
 ])
 class TestIsLengthValid:
     plates = Plates()
-
     def test_is_length_valid(self,plate, result)->None:
-        assert self.plates.is_length_valid(plate) == result 
+        assert self.plates.is_length_valid(plate) == result
+
+#Test for the is number in the middle of the plate function
+@pytest.mark.parametrize("plate, result",[
+    ("CS50", False),
+    ("CS50P", True),
+    ("AAA222", False),
+    ("AAA22A", True),
+])
+class TestIsIntInMiddle:
+    plates = Plates()
+    def test_is_int_middle(self, plate, result):
+        assert self.plates.is_int_in_middle(plate) == result
