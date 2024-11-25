@@ -40,6 +40,18 @@ class TestIsLengthValid:
     def test_is_length_valid(self,plate, result)->None:
         assert self.plates.is_length_valid(plate) == result
 
+#Test for the contains digits function
+@pytest.mark.parametrize("plate, result",[
+    ("AAA222", True),
+    ("22222", True),
+    ("AAAAA", False),
+    ("Hello World", False),
+    ("Hel222A", True)
+])
+class TestContainsDigits:
+    plates = Plates()
+    def test_contains_digits(self, plate, result):
+        assert self.plates.contains_digits(plate) == result
 #Test for the is number in the middle of the plate function
 @pytest.mark.parametrize("plate, result",[
     ("CS50", False),
