@@ -65,7 +65,7 @@ class TestIsFirstDigitIsZero:
     plates = Plates()
     def test_is_first_digit_zero(self, plate, result):
         assert self.plates.is_first_digit_zero(plate) == result
-#Test for the is number in the middle of the plate function
+#Test for if middle of the plate contains a number 
 @pytest.mark.parametrize("plate, result",[
     ("CS50", False),
     ("CS50P", True),
