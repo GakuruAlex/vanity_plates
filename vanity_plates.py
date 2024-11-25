@@ -2,13 +2,21 @@ import string
 class Plates:
     def is_alpha_num(self, plate):
         return any(plate.isalpha() for plate in plate) and any(plate.isdigit() for plate in plate)
+    def contains_digits(self, plate):
+        return any(plate.isdigit() for plate in plate)
     def begins_with_two_letters(self, plate):
         return plate[:2].isalpha()
     def is_length_valid(self, plate):
         return len(plate) >  1 and len(plate) < 7
     def is_int_in_middle(self, plate):
-        if plate[0].isalpha() and plate[-1].isalpha():
-            return plate[1:-2].isalnum()
+        if self.is_alpha_num(plate):
+            if plate[0].isalpha() and plate[-1].isalpha():
+                return self.contains_digits(plate[1:-2])
+            else:
+                return False
+        else:
+            return False
+
     def no_period_punctuation(self, plate):
         return True not in [char in string.punctuation and char in string.whitespace for char in plate]
     def is_valid(self, plate):
