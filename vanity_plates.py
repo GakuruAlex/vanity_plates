@@ -28,9 +28,10 @@ class Plates:
     def is_valid(self, plate):
         if self.is_length_valid(plate):
             if self.is_alpha_num(plate):
-                return self.begins_with_two_letters(plate) and self.is_int_in_middle(plate) and self.no_period_punctuation(plate)
-            else:
+                return self.begins_with_two_letters(plate) and self.is_int_in_middle(plate) and self.no_period_punctuation(plate) and self.is_first_digit_zero(plate)
+            elif plate.isalpha():
                 return self.no_period_punctuation(plate)
+            return False
         else:
             return False
 
