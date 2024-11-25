@@ -4,6 +4,12 @@ class Plates:
         return any(plate.isalpha() for plate in plate) and any(plate.isdigit() for plate in plate)
     def contains_digits(self, plate):
         return any(plate.isdigit() for plate in plate)
+    def is_first_digit_zero(self, plate):
+        if not plate.isalpha():
+            for char in plate:
+                if char.isdigit():
+                    return int(char) == 0
+        return False
     def begins_with_two_letters(self, plate):
         return plate[:2].isalpha()
     def is_length_valid(self, plate):
